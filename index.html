@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-----------Important meta tags----------->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Junior Frontend Mentor Challenge to build a FAQ accordion website">
+    <meta property="og:description" content="Junior Frontend Mentor Challenge to build a FAQ accordion website">
+    <meta name="author" content="Ogunsanwo David Oluwadamilare">
+    <meta property="og:author" content="Ogunsanwo David Oluwadamilare">
+    <meta property="og:image" content="https://github.com/ogunsanwodavid/FYLO/assets/images/favicon-32x32.png">
+    <meta property="og:title" content="FAQ: Accordion">
+
+    <!-----------Title---------->
+    <title>FAQ Accordion</title>
+
+    <!------------Favicon------------->
+    <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+
+    <!-------Linked stylesheets, fonts, icons and libraries------------>
+    <link rel="stylesheet" href="./dist/output.css">
+
+    <!----------Fontawesome icons---------->
+
+    
+    <!--------Google Fonts----------->
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    -->
+
+    <!--Added Styles-->
+    <style>
+        @font-face {
+            font-family: 'Work Sans';
+            src: url('./assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf') format('truetype'),
+            url('fonts/Work_Sans/OFL.txt') format('woff')
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        #heading-bg{
+            background-image: url(./assets/images/background-pattern-mobile.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+<body class="bg-light-pink h-max pb-24">
+    <header class="w-full h-[200px]" id="heading-bg"></header>
+    
+    <section class="w-4/5 max-w-[500px] bg-white p-6 rounded-xl mx-auto -translate-y-20">
+        <h1 class="flex items-center space-x-4"><img src="./assets/images/icon-star.svg" class="h-5 md:h-8" alt="#"> <span class="text-[1.4rem] text-dark-purple font-bold md:text-[2rem]">FAQS</span></h1>
+
+        <ul class="flex flex-col w-full" id="faqs">
+            <!--First faq-->
+            <li class="faq py-4 border-b-[1.5px] border-b-gray space-y-6">
+                <h1 class="flex items-center justify-between">
+                    <div class="w-[80%] h-max text-[0.8rem] font-bold text-dark-purple cursor-pointer hover:text-light-purple md:text-[0.85rem]">What is Frontend mentor, and how will it help me?</div>
+
+                    <img src="./assets/images/icon-plus.svg" class="faq-ctrl h-6 cursor-pointer" alt="">
+
+                </h1>
+
+                <p class="faq-text closed hidden w-full text-[0.75rem] text-grayish-purple md:text-[0.8rem]">Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for all levels and ideal for portfolio building.</p>
+            </li>
+
+            <!--Second Faq-->
+            <li class="faq py-4 border-b-[1.5px] border-b-gray space-y-6">
+                <h1 class="flex items-center justify-between">
+                    <div class="w-[80%] h-max text-[0.8rem] font-bold text-dark-purple cursor-pointer hover:text-light-purple md:text-[0.85rem]">Is Frontend Mentor free?</div>
+
+                    <img src="./assets/images/icon-plus.svg" class="faq-ctrl h-6 cursor-pointer" alt="">
+
+                </h1>
+
+                <p class="faq-text closed hidden w-full text-[0.75rem] text-grayish-purple md:text-[0.8rem]">Yes, Frontend Mentor offers both free and premium coding challenges, with the free option providing access to a range of projects suitable for all skill levels.</p>
+            </li>
+
+            <!--Third faq-->
+            <li class="faq py-4 border-b-[1.5px] border-b-gray space-y-6">
+                <h1 class="flex items-center justify-between">
+                    <div class="w-[80%] h-max text-[0.8rem] font-bold text-dark-purple cursor-pointer hover:text-light-purple md:text-[0.85rem]">Can I use Frontend Mentor projects in my portfolio?</div>
+
+                    <img src="./assets/images/icon-plus.svg" class="faq-ctrl h-6 cursor-pointer" alt="">
+
+                </h1>
+
+                <p class="faq-text closed hidden w-full text-[0.75rem] text-grayish-purple md:text-[0.8rem]">Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent way to showcase your skills to potential employers!</p>
+            </li>
+
+            <!--Fourth faq-->
+            <li class="faq py-4 border-b-[1.5px] border-b-gray space-y-6">
+                <h1 class="flex items-center justify-between">
+                    <div class="w-[80%] h-max text-[0.8rem] font-bold text-dark-purple cursor-pointer hover:text-light-purple md:text-[0.85rem]">How can I get help if I'm stuck on a Frontend Mentor challenge?</div>
+
+                    <img src="./assets/images/icon-plus.svg" class="faq-ctrl h-6 cursor-pointer" alt="">
+
+                </h1>
+
+                <p class="faq-text closed hidden w-full text-[0.75rem] text-grayish-purple md:text-[0.8rem]">The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members.</p>
+            </li>
+        </ul>
+    </section>
+
+
+    <script>
+        const faqItems = document.getElementsByClassName("faq");
+        const faqCtrls = document.getElementsByClassName("faq-ctrl");
+        const faqTexts = document.getElementsByClassName("faq-text")
+
+        for (let i = 0; i < faqCtrls.length; i++) {
+            faqCtrls[i].addEventListener('click', () => {
+                if(faqTexts[i].classList.contains("closed")){
+                    excludedFaqTexts = Array.from(faqTexts).filter(function (element) {
+                        return element !== faqTexts[i]
+                    })
+
+                    excludedFaqCtrls = Array.from(faqCtrls).filter(function (element) {
+                        return element !== faqCtrls[i]
+                    })
+
+                    faqCtrls[i].src = "./assets/images/icon-minus.svg"
+                    faqTexts[i].classList.remove("closed")
+                    faqTexts[i].classList.add("opened")
+                    faqTexts[i].style.display = "block"
+
+                    for (let i = 0; i < excludedFaqTexts.length; i++) {
+                        excludedFaqCtrls[i].src = "./assets/images/icon-plus.svg"
+                        excludedFaqTexts[i].classList.remove("opened")
+                        excludedFaqTexts[i].classList.add("closed")
+                        excludedFaqTexts[i].style.display = "none"
+                    }
+
+                }else{
+                    excludedFaqTexts = Array.from(faqTexts).filter(function (element) {
+                        return element !== faqTexts[i]
+                    })
+
+                    excludedFaqCtrls = Array.from(faqCtrls).filter(function (element) {
+                        return element !== faqCtrls[i]
+                    })
+
+                    faqCtrls[i].src = "./assets/images/icon-plus.svg"
+                    faqTexts[i].classList.remove("opened")
+                    faqTexts[i].classList.add("closed")
+                    faqTexts[i].style.display = "none"
+
+                    for (let i = 0; i < excludedFaqTexts.length; i++) {
+                        excludedFaqCtrls[i].src = "./assets/images/icon-minus.svg"
+                    }
+                }
+            })            
+        }
+    </script>
+</body>
